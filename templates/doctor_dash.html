@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-lg-start">Posts Written By you:</h1>
+{% for post in object_list %}
+    <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+            <div class="col-md-4"
+                style="background-image: url('{{ post.image.url }}'); background-size: cover; background-repeat: no-repeat;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.summary | truncatewords:15}}</p>
+                    <p class="card-text"><small class="text-muted">Category: {{post.category}}</small></p>
+                    <a href="{{post.get_absolute_url}}">
+                        <p class="btn btn-sm btn-success">View</p>
+                    </a>
+                    <p class="btn btn-sm btn-danger">Delete</p>
+                    <a href="{% url 'post_update' post.slug %}">
+
+                        <p class="btn btn-sm btn-info">Edit</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <h3>There are no posts</h3>    
+{% endfor %}
+
+{% endblock content %}

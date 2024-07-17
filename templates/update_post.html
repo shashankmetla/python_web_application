@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form class="postform mb-5" method="POST" enctype="multipart/form-data">
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger" role="alert">
+            {{form.non_field_errors}}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        {{form}}
+        <button class="btn btn-md btn-success mt-5" type="submit">Create Post</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,64 @@
+<nav class="navbar navbar-dark bg-dark mb-5">
+    <div class="container">
+        <a href="{% url 'home' %}" style="text-decoration: none;">
+
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_doctor %}
+            <span class="navbar-brand mb-0 h1">
+            
+                Hello Doctor {{request.user.first_name}}
+            </span>
+            <a href="{% url 'new_post' %}">
+            
+                <button type="button" class="btn btn-info">Crete Post</button>
+            </a>
+            <a href="{% url 'categories' %}">
+            
+                <button type="button" class="btn btn-info">View Categories</button>
+            </a>
+            <a href="{% url 'post_draft' %}">
+            
+                <button type="button" class="btn btn-info">View Drafts</button>
+            </a>
+            <a href="{% url 'list_appointments' %}">
+            
+                <button type="button" class="btn btn-info">View Appoitments</button>
+            </a>
+            {% else %}
+            <span class="navbar-brand mb-0 h1">
+            
+                Hello Patient {{request.user.first_name}}
+            </span>
+                <a href="{% url 'categories' %}">
+                
+                    <button type="button" class="btn btn-info">View Categories</button>
+                </a>
+                <a href="{% url 'all_posts' %}">
+                
+                    <button type="button" class="btn btn-info">View Posts</button>
+                </a>
+                <a href="{% url 'list_doctors' %}">
+                
+                    <button type="button" class="btn btn-info">Book an Appointment</button>
+                </a>
+                <a href="{% url 'list_appointments' %}">
+                
+                    <button type="button" class="btn btn-info">Booked Appoitments</button>
+                </a>
+            {% endif %}
+                
+            <a href="{% url 'logout' %}">
+
+                <button type="button" class="btn btn-danger">Log Out</button>
+            </a>
+            {% else %}
+            <span class="navbar-brand mb-0 h1">Welcome</span>
+            <a href="{% url 'login' %}">
+                <button class="btn btn-success">Log In</button>
+            </a>
+            {% endif %}
+        </a>
+
+    </div>
+</nav>
+

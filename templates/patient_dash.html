@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% regroup object_list by category as category_list %}
+{% for category  in category_list %}
+<ul>
+
+    <li>
+    <h1 class="text-lg-start mt-5">Posts from {{category.grouper}}</h1>
+    {% for post in category.list %}
+        
+    <div class="card mb-3" style="max-width: 100%; max-height: 20%;">
+        <div class="row g-0">
+            <div class="col-md-4" style="background-image: url('{{ post.image.url }}'); background-size: cover; background-repeat: no-repeat;">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.summary|truncatewords:15}}</p>
+                    <p class="card-text"><small class="text-muted">By: {{post.written_by}}</small></p>
+                    <a href="{{post.get_absolute_url}}">
+                        <p class="btn btn-sm btn-success">View</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </li>
+</ul>
+{% endfor %}
+    
+{% endblock content %}

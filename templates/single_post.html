@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card border-0 shadow-lg my-5">
+    <div class="card-body p-5">
+        <h1 class="fw-light">{{object.title}}</h1>
+        <div class="cover-image" style="background-color: red; height: 40vh; background-image: url('{{object.image.url}}'); background-repeat: no-repeat; background-size: cover;"></div>
+        <p class="lead">{{object.summary}}</p>
+        <div>{{object.content}}</div>
+        <p class="lead mb-0">{{object.category}} - Written By: {{object.written_by}}</p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>All the post Categories</h1>
+<ul>
+    {% for object in object_list %}
+        <li>
+            <a href="{% url 'post_by_category' object.slug %}">
+
+                <h2>{{object.name}}</h2>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

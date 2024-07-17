@@ -1,0 +1,80 @@
+/* Apply background color to all HTML files */
+body {
+  background-color: #f0f8ff; /* Light blue background color */
+  font-family: Arial, sans-serif; /* Optional: Set a default font for consistency */
+  margin: 0;
+  padding: 0;
+}
+
+/* Existing styles */
+.loginform,
+.signupform,
+.postform,
+.appointment_form {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #f5f5f5; /* Light grey background */
+  padding: 20px;
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 10px;
+}
+
+.loginform input,
+.signupform input,
+.postform input,
+.appointment_form input {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da; /* Light grey border */
+  text-align: center; /* Center align text */
+  background-color: #ffffff; /* White background for inputs */
+}
+
+.loginform label,
+.signupform label,
+.postform label,
+.appointment_form label {
+  font-size: larger;
+  margin-top: 10px;
+  text-align: center; /* Center align labels */
+  color: #007bff; /* Blue color for labels */
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.post-detail--image {
+  object-fit: contain;
+  width: 100%;
+  height: 10vh;
+  border: 1px solid #ced4da; /* Light grey border */
+}
+
+.appointment-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #e9ecef; /* Light grey background for container */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.appointment-element {
+  margin: 20px;
+  padding: 10px;
+  background-color: #ffffff; /* White background for elements */
+  border: 1px solid #007bff; /* Blue border */
+  border-radius: 5px;
+  text-align: center; /* Center align text */
+}
